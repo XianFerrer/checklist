@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CU Pain Handover Checklist</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    h2 { color: #2c3e50; }
+    .section { margin-bottom: 20px; }
+    label { display: block; margin: 5px 0; }
+    input, textarea { width: 100%; padding: 5px; margin-top: 5px; }
+  </style>
+</head>
+<body>
+
+<h2>CU Pain Handover Checklist</h2>
+
+<div class="section">
+  <label>Patient Name/ID:</label>
+  <input type="text">
+  
+  <label>Date/Time:</label>
+  <input type="datetime-local">
+  
+  <label>Nurse:</label>
+  <input type="text">
+</div>
+
+<div class="section">
+  <h3>1. Pain Assessment (Current)</h3>
+  <label>Pain Score:</label>
+  <input type="text">
+  
+  <label>Tool Used:</label>
+  <input type="text">
+
+  <label><input type="checkbox"> Grimacing</label>
+  <label><input type="checkbox"> Ventilator dyssynchrony</label>
+  <label><input type="checkbox"> Restlessness/agitation</label>
+  <label><input type="checkbox"> Muscle tension</label>
+  
+  <label>Other:</label>
+  <input type="text">
+</div>
+
+<div class="section">
+  <h3>2. Pain Trend</h3>
+  <label><input type="checkbox"> Improving</label>
+  <label><input type="checkbox"> Worsening</label>
+  <label><input type="checkbox"> Unchanged</label>
+
+  <label>Notes:</label>
+  <textarea></textarea>
+</div>
+
+<div class="section">
+  <h3>3. Analgesia & Response</h3>
+  <label>Last Analgesia:</label>
+  <input type="text">
+
+  <label>Time Given:</label>
+  <input type="time">
+
+  <label><input type="checkbox"> Effective</label>
+  <label><input type="checkbox"> Partially Effective</label>
+  <label><input type="checkbox"> Ineffective</label>
+
+  <label>Reassessment Score:</label>
+  <input type="text">
+</div>
+
+<div class="section">
+  <h3>4. Concerns</h3>
+  <label><input type="checkbox"> Pain not controlled</label>
+  <label><input type="checkbox"> Delirium vs pain unclear</label>
+  <label><input type="checkbox"> Escalating analgesia</label>
+  <label><input type="checkbox"> Side effects</label>
+  <label><input type="checkbox"> No concerns</label>
+
+  <label>Clinical Notes:</label>
+  <textarea></textarea>
+</div>
+
+<div class="section">
+  <h3>5. Plan</h3>
+  <label><input type="checkbox"> Continue current</label>
+  <label><input type="checkbox"> Increase analgesia</label>
+  <label><input type="checkbox"> Review by doctor</label>
+  <label><input type="checkbox"> Alternative agents</label>
+  <label><input type="checkbox"> Monitor closely</label>
+
+  <label>Plan Details:</label>
+  <textarea></textarea>
+</div>
+
+<div class="section">
+  <h3>Handover Summary</h3>
+  <textarea></textarea>
+</div>
+
+</body>
+</html>
