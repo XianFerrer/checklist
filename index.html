@@ -154,6 +154,38 @@
         page-break-before: always;
         break-before: page;
       }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      .print-page {
+        width: 210mm;
+        margin: auto;
+      }
+
+      /* EACH PAGE */
+      .print-section {
+        width: 210mm;
+        height: 297mm;
+        padding: 12mm;
+        box-sizing: border-box;
+        background: white;
+        position: relative;
+      }
+
+      /* force page break */
+      .page2 {
+        page-break-before: always;
+        break-before: page;
+      }
+      select {
+        width: 100%;
+        border: 1px solid #888;
+        padding: 4px;
+        font-size: 12px;
+        background: transparent;
+      }
     </style>
   </head>
 
@@ -188,8 +220,14 @@
           <input type="text" />
 
           <label>Tool Used</label>
-          <input type="text" />
-
+          <select>
+            <option value="">Select Tool</option>
+            <option value="CPOT">CPOT</option>
+            <option value="BPS">BPS</option>
+          </select>
+          <label style="font-weight: bold"
+            >Behavioural Indicators Observed:
+          </label>
           <label><input type="checkbox" /> Grimacing</label>
           <label><input type="checkbox" /> Ventilator dyssynchrony</label>
           <label><input type="checkbox" /> Restlessness/agitation</label>
