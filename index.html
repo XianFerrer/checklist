@@ -1,200 +1,274 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <title>CU Pain Handover Checklist</title>
-  <style>
-    body { font-family: Arial; margin: 20px; }
-    h2 { color: #2c3e50; }
-    .section { margin-bottom: 20px; }
-    label { display: block; margin: 5px 0; }
-    input, textarea { width: 100%; padding: 5px; margin-top: 5px; }
+  <head>
+    <title>CU Pain Handover Checklist</title>
+
     <style>
-  body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #eef2f7, #dfe9f3);
-    margin: 0;
-    padding: 20px;
-  }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #ffffff;
+      }
 
-  .container {
-    max-width: 720px;
-    margin: auto;
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  }
+      .page {
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+      }
 
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #2c3e50;
-  }
+      .card {
+        width: 900px;
+        background: #ffffff;
+        padding: 20px;
+        border: 1px solid #888;
+      }
 
-  h3 {
-    color: #34495e;
-    border-left: 4px solid #3498db;
-    padding-left: 8px;
-    margin-top: 20px;
-  }
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-  .section {
-    margin-bottom: 20px;
-  }
+      h3 {
+        margin: 0 0 10px;
+        border-bottom: 1px solid #888;
+        padding-bottom: 5px;
+        color: #000;
+      }
 
-  label {
-    font-size: 14px;
-    margin-top: 10px;
-    display: block;
-    color: #555;
-  }
+      .section {
+        border: 1px solid #888;
+        padding: 10px;
+        margin-bottom: 15px;
+      }
 
-  input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    transition: 0.2s;
-  }
+      /* top row */
+      .row {
+        display: flex;
+      }
 
-  input:focus, textarea:focus {
-    border-color: #3498db;
-    outline: none;
-    box-shadow: 0 0 5px rgba(52,152,219,0.3);
-  }
+      .field {
+        flex: 1;
+        padding: 8px;
+      }
 
-  textarea {
-    min-height: 70px;
-    resize: vertical;
-  }
+      label {
+        font-size: 13px;
+        display: block;
+        margin-top: 5px;
+      }
 
-  .checkbox-group {
-    margin-top: 8px;
-  }
+      input,
+      textarea {
+        width: 98%;
+        padding: 6px;
+        border: 1px solid #888;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        font-size: 13px;
+      }
 
-  .checkbox-group label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #f8f9fb;
-    padding: 8px;
-    border-radius: 6px;
-    margin-bottom: 5px;
-    cursor: pointer;
-  }
+      input:focus,
+      textarea:focus {
+        outline: none;
+      }
 
-  .checkbox-group input {
-    width: auto;
-  }
+      textarea {
+        min-height: 60px;
+      }
 
-  .btn {
-    margin-top: 20px;
-    background: linear-gradient(135deg, #3498db, #2ecc71);
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    width: 100%;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+      /* simple checkbox style */
+      .section label input {
+        width: auto;
+        margin-right: 6px;
+      }
+      @media print {
+        body {
+          background: white;
+        }
 
-  .btn:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
-  }
-</style>
-  </style>
-</head>
-<body>
+        .page {
+          padding: 0;
+        }
 
-<h2>CU Pain Handover Checklist</h2>
+        .card {
+          width: 100%;
+          border: none;
+          box-shadow: none;
+        }
 
-<div class="section">
-  <label>Patient Name/ID:</label>
-  <input type="text">
-  
-  <label>Date/Time:</label>
-  <input type="datetime-local">
-  
-  <label>Nurse:</label>
-  <input type="text">
-</div>
+        button {
+          display: none; /* hide button in PDF */
+        }
+      }
+      /* A4 sizing */
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
 
-<div class="section">
-  <h3>1. Pain Assessment (Current)</h3>
-  <label>Pain Score:</label>
-  <input type="text">
-  
-  <label>Tool Used:</label>
-  <input type="text">
+      @media print {
+        body {
+          background: white;
+        }
 
-  <label><input type="checkbox"> Grimacing</label>
-  <label><input type="checkbox"> Ventilator dyssynchrony</label>
-  <label><input type="checkbox"> Restlessness/agitation</label>
-  <label><input type="checkbox"> Muscle tension</label>
-  
-  <label>Other:</label>
-  <input type="text">
-</div>
+        .page {
+          padding: 0;
+        }
 
-<div class="section">
-  <h3>2. Pain Trend</h3>
-  <label><input type="checkbox"> Improving</label>
-  <label><input type="checkbox"> Worsening</label>
-  <label><input type="checkbox"> Unchanged</label>
+        .card {
+          width: 210mm;
+          min-height: 297mm;
+          background: #ffffff;
+          padding: 15mm;
+          border: 1px solid #888;
+        }
 
-  <label>Notes:</label>
-  <textarea></textarea>
-</div>
+        h2 {
+          font-size: 18px;
+        }
 
-<div class="section">
-  <h3>3. Analgesia & Response</h3>
-  <label>Last Analgesia:</label>
-  <input type="text">
+        h3 {
+          font-size: 14px;
+        }
 
-  <label>Time Given:</label>
-  <input type="time">
+        label,
+        input,
+        textarea {
+          font-size: 12px;
+        }
 
-  <label><input type="checkbox"> Effective</label>
-  <label><input type="checkbox"> Partially Effective</label>
-  <label><input type="checkbox"> Ineffective</label>
+        button {
+          display: none; /* hide button in PDF */
+        }
+      }
+      .section {
+        border: 1px solid #888;
+        padding: 8px;
+        margin-bottom: 10px;
 
-  <label>Reassessment Score:</label>
-  <input type="text">
-</div>
+        page-break-inside: avoid; /* KEY FIX */
+        break-inside: avoid; /* modern browsers */
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+      }
+    </style>
+  </head>
 
-<div class="section">
-  <h3>4. Concerns</h3>
-  <label><input type="checkbox"> Pain not controlled</label>
-  <label><input type="checkbox"> Delirium vs pain unclear</label>
-  <label><input type="checkbox"> Escalating analgesia</label>
-  <label><input type="checkbox"> Side effects</label>
-  <label><input type="checkbox"> No concerns</label>
+  <body>
+    <div class="page">
+      <div class="card">
+        <h2>CU Pain Handover Checklist</h2>
 
-  <label>Clinical Notes:</label>
-  <textarea></textarea>
-</div>
+        <!-- Top Row -->
+        <div class="row">
+          <div class="field">
+            <label>Patient Name/ID</label>
+            <input type="text" />
+          </div>
 
-<div class="section">
-  <h3>5. Plan</h3>
-  <label><input type="checkbox"> Continue current</label>
-  <label><input type="checkbox"> Increase analgesia</label>
-  <label><input type="checkbox"> Review by doctor</label>
-  <label><input type="checkbox"> Alternative agents</label>
-  <label><input type="checkbox"> Monitor closely</label>
+          <div class="field">
+            <label>Date/Time</label>
+            <input type="datetime-local" />
+          </div>
 
-  <label>Plan Details:</label>
-  <textarea></textarea>
-</div>
+          <div class="field">
+            <label>Nurse</label>
+            <input type="text" />
+          </div>
+        </div>
 
-<div class="section">
-  <h3>Handover Summary</h3>
-  <textarea></textarea>
-</div>
+        <!-- 1 -->
+        <div class="section">
+          <h3>1. Pain Assessment (Current)</h3>
 
-</body>
+          <label>Pain Score</label>
+          <input type="text" />
+
+          <label>Tool Used</label>
+          <input type="text" />
+
+          <label><input type="checkbox" /> Grimacing</label>
+          <label><input type="checkbox" /> Ventilator dyssynchrony</label>
+          <label><input type="checkbox" /> Restlessness/agitation</label>
+          <label><input type="checkbox" /> Muscle tension</label>
+
+          <label>Other</label>
+          <input type="text" />
+        </div>
+
+        <!-- 2 -->
+        <div class="section">
+          <h3>2. Pain Trend</h3>
+
+          <label><input type="checkbox" /> Improving</label>
+          <label><input type="checkbox" /> Worsening</label>
+          <label><input type="checkbox" /> Unchanged</label>
+
+          <label>Notes</label>
+          <textarea></textarea>
+        </div>
+
+        <!-- 3 -->
+        <div class="section">
+          <h3>3. Analgesia & Response</h3>
+
+          <label>Last Analgesia</label>
+          <input type="text" />
+
+          <label>Time Given</label>
+          <input type="time" />
+
+          <label><input type="checkbox" /> Effective</label>
+          <label><input type="checkbox" /> Partially Effective</label>
+          <label><input type="checkbox" /> Ineffective</label>
+
+          <label>Reassessment Score</label>
+          <input type="text" />
+        </div>
+
+        <!-- 4 -->
+        <div class="section page-break">
+          <h3>4. Concerns</h3>
+
+          <label><input type="checkbox" /> Pain not controlled</label>
+          <label><input type="checkbox" /> Delirium vs pain unclear</label>
+          <label><input type="checkbox" /> Escalating analgesia</label>
+          <label><input type="checkbox" /> Side effects</label>
+          <label><input type="checkbox" /> No concerns</label>
+
+          <label>Clinical Notes</label>
+          <textarea></textarea>
+        </div>
+
+        <!-- 5 -->
+        <div class="section">
+          <h3>5. Plan</h3>
+
+          <label><input type="checkbox" /> Continue current</label>
+          <label><input type="checkbox" /> Increase analgesia</label>
+          <label><input type="checkbox" /> Review by doctor</label>
+          <label><input type="checkbox" /> Alternative agents</label>
+          <label><input type="checkbox" /> Monitor closely</label>
+
+          <label>Plan Details</label>
+          <textarea></textarea>
+        </div>
+
+        <!-- Summary -->
+        <div class="section">
+          <h3>Handover Summary</h3>
+          <textarea></textarea>
+        </div>
+        <button class="btn" onclick="savePDF()">Save as PDF</button>
+      </div>
+    </div>
+    <script>
+      function savePDF() {
+        window.print();
+      }
+    </script>
+  </body>
 </html>
